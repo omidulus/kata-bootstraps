@@ -10,16 +10,19 @@ require __DIR__ . '/../vendor/autoload.php';
 class KataTest extends TestCase
 {
 
-
-    public function testDummy()
+    public function testThat100LinesArePrinted()
     {
         $kata = new Kata();
-        $this->assertTrue(false);
-    }
 
-    public function testNotFailing()
-    {
-        $this->assertTrue(true);
+        ob_start();
+        $kata->doWork();
+        $output = ob_get_clean();
+
+        $this->assertNotSame(false, $output);
+
+        $outputAsArray = explode("\n", $output);
+//        var_export($outputAsArray);
+        $this->assertCount(100, $outputAsArray);
     }
 
 }

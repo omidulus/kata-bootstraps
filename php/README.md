@@ -14,6 +14,7 @@ To run the tests just run:
 
 ```
 phpunit --bootstrap vendor/autoload.php tests --filter testNotFailing
+docker-compose exec php-fpm vendor/phpunit/phpunit/phpunit --bootstrap vendor/autoload.php tests
 ```
 You need PHP 7.2 or above.
 
